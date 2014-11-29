@@ -1,0 +1,9 @@
+# -*- coding: utf-8 -*-
+from Tkinter import *
+root = Tk() #หน้าจอหลักโปรแกรม
+root.geometry('780x580+280+70')
+root.title("How Smoking Affects Your Life")
+root.configure(bg='light green')
+label1 = Label(root, text="ยินดีต้อนรับเข้าสู่แอพ",fg='blue',bg = 'light blue')
+label1.grid(row=0,column=0)
+root.mainloop()
