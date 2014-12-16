@@ -31,6 +31,28 @@ def start(): #หน้าที่2 --> หน้ากรอกข้อมู
     input_num1.grid(row=7,column=2)#ส่วนรับอินพุท
     label3 = Label(main, text='   มวน/วัน',fg='blue',bg = 'light green', font = "Times 40 bold")
     label3.grid(row=7,column=3)
+    def process_2(): #ส่วนคำนวณที่ฟังก์ชั่นprocessเรียกใช้
+        a = input_num1.get()
+        b = str(((int(a)*7*365)/1440))+' วัน '+str(((int(a)*7*365)%1440)/60)+' ชั่วโมง'
+        return b
+    def process_3(): #func processเรียกอีกที
+        num = input_num1.get()
+        money = str(((int(num)*365)/20)*70)
+        return money
+    def process():#หน้าที่สาม --> หน้าโชว์ผลการคำนวณ
+        pop = Tk()
+        pop.configure(bg = "light pink")
+        pop.title("How Smoking Affects Your Life")
+        pop.geometry('780x580+280+70')
+        label4 = Label(pop, text="ชีวิตลดลงเฉลี่ย " + str(process_2() + " ต่อปี"), font = "Times 45 bold",fg = 'red',bg ='light pink').place(x=70, y=200)
+        label_money = Label(pop, text="   สูญเสียเงินเฉลี่ย " + str(process_3() + " บาท ต่อปี"), font = "Times 30 ",fg = 'purple',bg = 'light pink').place (x=170,y=260)
+        label5 = Label(pop, text="คุณต้องการคำแนะนำการเลิกบุหรี่หรือไม่?", font = "Times 20 bold",fg = 'blue',bg = 'light pink').place(x=220, y=310)
+        button3 = Button(pop,text = "ต้องการ", command = yes, font = "Times 15 bold").place(x=300, y=360)
+        def exitall():
+            pop.destroy()
+            main.destroy()
+        button4 = Button(pop,text = "ไม่ต้องการ", command = exitall, font = "Times 15 bold").place(x=410, y=360) 
+
     button_main = Button(main, text="คำนวณ",command = process, font = "Times 25 bold").place(x=340, y=350)
 
 button1 = Button(root, text="เข้าสู่โปรแกรม",command = start, font = "Times 15 bold").place(x=200, y=330)
